@@ -7,8 +7,6 @@ requires-python = ">=3.11"
 dependencies = []
 
 [tool.uv]
-# 1. Equivalent to 'find-links'
-# Tells uv to look in these local Compute Canada directories for wheels first
 find-links = [
     "/cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo2023/x86-64-v4",
     "/cvmfs/soft.computecanada.ca/custom/python/wheelhouse/gentoo2023/x86-64-v3",
@@ -16,14 +14,4 @@ find-links = [
     "/cvmfs/soft.computecanada.ca/custom/python/wheelhouse/generic"
 ]
 
-# 2. Equivalent to 'constraint'
-# Points to the central constraint file to ensure version compatibility
-# constraint-file = "/cvmfs/soft.computecanada.ca/config/python/constraints.txt"
-
-# 3. Equivalent to 'only-binary'
-# Tells uv to fail if it cannot find a binary wheel for these packages
-# (i.e., do not attempt to build them from source)
 no-build-package = ["numpy", "scipy", "mpi4py", "pandas", "h5py", "Cython", "grpcio"]
-
-# Note: 'prefer-binary' is the default behavior for uv, so no config is needed.
-# Note: 'disable-pip-version-check' is not relevant to uv.
